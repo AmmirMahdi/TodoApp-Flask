@@ -1,7 +1,7 @@
 import os
 from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
-
+from flask_migrate import Migrate
 app = Flask(__name__)
 
 # config app 
@@ -14,6 +14,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///'+os.path.join(basedir, 'data.
 app.config['SQLALCHEMT_TRECK_MODIFICATION'] = False 
 
 db = SQLAlchemy(app)
+
+Migrate(app, db)
 
 
 

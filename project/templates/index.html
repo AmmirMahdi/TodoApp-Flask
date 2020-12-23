@@ -4,4 +4,12 @@
 
 <h1> Welcome</h1>
 
+<form  method="post">
+
+    {{ form.hidden_tag() }}
+    {{ form.title.label }} {{ form.title }}<br>
+    {{ form.complete.label }} {{form.complete }}
+    {{ form.submit() }}
+</form>
+
 {% endblock %}
