@@ -1,6 +1,6 @@
 from project import app, db
 from flask import render_template, url_for, redirect
-from project.forms import TodoForm
+from project.forms import TodoForm, DelTodo
 from project.models import Todo
 
 @app.route('/', methods=['GET', 'POST'])
@@ -24,7 +24,11 @@ def todo():
 
 @pp.route('/delete/<id>', methods=['GET', 'POST'])
 def delete(id):
-    todo = Todo.query.get(id)
-    db.session.delete(todo)
-    db.session.commit()
-    print('Todo Deleted !')
+    form = DelTodo()
+    if form.validate_on_submit():
+        todo = Todo.query.get(form.id.data)
+        db.session.delete(todo)
+        db.session.commit()
+        print('Todo Deleted !')
+        return redirect('todo')
+    return render_template('delete.html', form=form)
