@@ -20,3 +20,11 @@ def index():
 def todo():
     todo = Todo.query.all()
     return render_template('todo.html', todo=todo)
+
+
+@pp.route('/delete/<id>', methods=['GET', 'POST'])
+def delete(id):
+    todo = Todo.query.get(id)
+    db.session.delete(todo)
+    db.session.commit()
+    print('Todo Deleted !')
