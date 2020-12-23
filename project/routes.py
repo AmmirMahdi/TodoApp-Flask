@@ -22,7 +22,7 @@ def todo():
     return render_template('todo.html', todo=todo)
 
 
-@pp.route('/delete/<id>', methods=['GET', 'POST'])
+@app.route('/delete/<id>', methods=['GET', 'POST'])
 def delete(id):
     form = DelTodo()
     if form.validate_on_submit():
