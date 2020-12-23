@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block title %} Todo List  {% endblock %}
+
+
+{% block content %}
+
+{% for t in todo %} 
+
+    <h3> {{  t.title  }}</h3>
+    {% if t.status %}
+        <p> OK</p>
+    {% else %}
+        <p>Not Complete</p>
+    {% endif %}
+    </p>
+
+{% endfor %}
+
+
+{% endblock %}

@@ -13,6 +13,10 @@ def index():
         db.session.add(new_todo)
         db.session.commit()
         print("todo added")
-        return redirect('todo.html')
+        return redirect('todo')
     return render_template('index.html', form=form)
     
+@app.route('/todo')
+def todo():
+    todo = Todo.query.all()
+    return render_template('todo.html', todo=todo)
