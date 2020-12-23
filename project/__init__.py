@@ -18,3 +18,5 @@ db = SQLAlchemy(app)
 
 
 from project import routes
+from project import models
+from project import forms
