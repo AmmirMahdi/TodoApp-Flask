@@ -3,6 +3,8 @@ from flask import render_template, url_for, redirect
 from project.forms import TodoForm, DelTodo
 from project.models import Todo
 
+from sqlalchemy import asc
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
@@ -22,13 +24,12 @@ def todo():
     return render_template('todo.html', todo=todo)
 
 
-@app.route('/delete/<id>', methods=['GET', 'POST'])
-def delete(id):
-    form = DelTodo()
-    if form.validate_on_submit():
-        todo = Todo.query.get(form.id.data)
-        db.session.delete(todo)
-        db.session.commit()
-        print('Todo Deleted !')
-        return redirect('todo')
-    return render_template('delete.html', form=form)
+@app.route('/delete/<int:todo_id>')
+def delete(todo_id):
+    todo = Todo.query.filter_by(id=todo_id).first()
+    print("we are in delete function ")
+    print(todo)
+    db.session.delete(todo)
+    db.session.commit()
+    print('Deleted !')
+    return redirect(url_for('index'))
