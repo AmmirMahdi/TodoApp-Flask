@@ -5,17 +5,20 @@
 
 {% block content %}
 
+<center><h1> Todo List </h1> </center>
+
 {% for t in todo %} 
 
     <h3> {{  t.title  }}</h3>
     {% if t.complete == False %}
         <p> Not Complete </p>
-    {% else %}
-        <p>Complete </p>
+    {% elif t.complete == True %}
+        <small>This Todo is completed !</small>
     {% endif %}
     </p>
-    <a class="ui red button" href="/delete/{{ t.id }}">Delete</a>
-    <a class="ui green button" href="/update/{{ t.id }}">Update</a>
+    <a class="btn btn-danger" href="/delete/{{ t.id }}">Delete</a>
+
+    <a class="btn btn-primary" href="/update/{{ t.id }}">Update</a>
 
     
     <hr>

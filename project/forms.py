@@ -4,9 +4,9 @@ from wtforms.validators import DataRequired
 
 
 class TodoForm(FlaskForm):
-    title  = StringField('title', validators=[DataRequired()])
-    complete = BooleanField('complete')
-    submit = SubmitField('submit')
+    title  = StringField('Title', validators=[DataRequired()])
+    complete = BooleanField('Complete')
+    submit = SubmitField('Submit')
 
 class DelTodo(FlaskForm):
     id = IntegerField('id')
