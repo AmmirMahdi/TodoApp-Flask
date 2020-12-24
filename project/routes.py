@@ -5,6 +5,7 @@ from project.models import Todo
 
 from sqlalchemy import asc
 
+# Add 
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
@@ -18,12 +19,14 @@ def index():
         return redirect('todo')
     return render_template('index.html', form=form)
     
+#  Todo List  
 @app.route('/todo')
 def todo():
     todo = Todo.query.all()
     return render_template('todo.html', todo=todo)
 
 
+#  Update
 @app.route('/update/<int:todo_id>')
 def update(todo_id):
     todo = Todo.query.filter_by(id=todo_id).first()
@@ -32,6 +35,7 @@ def update(todo_id):
     db.session.commit()
     return redirect(url_for('todo'))
 
+#  Delete Todo
 @app.route('/delete/<int:todo_id>')
 def delete(todo_id):
     todo = Todo.query.filter_by(id=todo_id).first()
