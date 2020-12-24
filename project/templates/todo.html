@@ -8,13 +8,16 @@
 {% for t in todo %} 
 
     <h3> {{  t.title  }}</h3>
-    {% if t.status == False %}
+    {% if t.complete == False %}
         <p> Not Complete </p>
     {% else %}
         <p>Complete </p>
     {% endif %}
     </p>
     <a class="ui red button" href="/delete/{{ t.id }}">Delete</a>
+    <a class="ui green button" href="/update/{{ t.id }}">Update</a>
+
+    
     <hr>
 
     {% endfor %}

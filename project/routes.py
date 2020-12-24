@@ -24,6 +24,14 @@ def todo():
     return render_template('todo.html', todo=todo)
 
 
+@app.route('/update/<int:todo_id>')
+def update(todo_id):
+    todo = Todo.query.filter_by(id=todo_id).first()
+    todo.complete = not todo.complete 
+    print('todo update')
+    db.session.commit()
+    return redirect(url_for('todo'))
+
 @app.route('/delete/<int:todo_id>')
 def delete(todo_id):
     todo = Todo.query.filter_by(id=todo_id).first()
