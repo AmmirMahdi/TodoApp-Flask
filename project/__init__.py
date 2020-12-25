@@ -2,7 +2,13 @@ import os
 from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+
+#  Boostrap 
+from flask_bootstrap import Bootstrap
+
 app = Flask(__name__)
+
+
 
 # config app 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -16,6 +22,9 @@ app.config['SQLALCHEMT_TRECK_MODIFICATION'] = False
 db = SQLAlchemy(app)
 
 Migrate(app, db)
+
+
+bootstrap = Bootstrap(app)
 
 
 
