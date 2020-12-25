@@ -14,11 +14,11 @@ def index():
     form = TodoForm()
 
     if form.validate_on_submit():
-        new_todo = Todo(title=form.title.data, complete=form.complete.data)
+        new_todo = Todo(title=form.title.data, description=form.description.data ,complete=form.complete.data)
         db.session.add(new_todo)
         db.session.commit()
         print("todo added")
-        return redirect('todo')
+        return redirect(url_for('todo'))
     return render_template('index.html', form=form, current_time=datetime.utcnow())
     
 #  Todo List  

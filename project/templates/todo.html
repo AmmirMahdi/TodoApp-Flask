@@ -9,7 +9,15 @@
 
 {% for t in todo %} 
 
+    <!-- Todo Title   -->
     <h3> {{  t.title  }}</h3>
+
+    <!--  Todo Date -->
+    <p>{{ t.date }}</p>
+
+    <!-- Todo Description  -->
+    <p>{{ t.description }}</p>
+
     {% if t.complete == False %}
         <p> Not Complete </p>
     {% elif t.complete == True %}
