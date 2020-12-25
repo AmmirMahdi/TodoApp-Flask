@@ -31,3 +31,4 @@ bootstrap = Bootstrap(app)
 from project import routes
 from project import models
 from project import forms
+from project import custom_error
