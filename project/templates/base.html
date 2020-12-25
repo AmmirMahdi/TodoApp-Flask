@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
@@ -23,11 +25,16 @@
         <li class="nav-item active">
           <a class="nav-link" href="{{url_for('index')}}">Home</span></a>
         </li>
+     
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('todo')}}">Todo List</a>
       </li>
+     
       </ul>
     </div>
+    <!-- <li class="nav-item active"> -->
+      <p class="nav-link"> Today : {{ moment().format('MMMM Do YYYY') }}</p>
+    <!-- </li> -->
   </nav>
 
 

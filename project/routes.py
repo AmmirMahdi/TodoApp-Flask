@@ -3,6 +3,8 @@ from flask import render_template, url_for, redirect
 from project.forms import TodoForm, DelTodo
 from project.models import Todo
 
+from datetime import datetime
+
 from sqlalchemy import asc
 
 # Add 
@@ -17,7 +19,7 @@ def index():
         db.session.commit()
         print("todo added")
         return redirect('todo')
-    return render_template('index.html', form=form)
+    return render_template('index.html', form=form, current_time=datetime.utcnow())
     
 #  Todo List  
 @app.route('/todo')
