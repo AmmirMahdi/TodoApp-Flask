@@ -1,7 +1,8 @@
 from project import app, db
 from flask import render_template, url_for, redirect
 from project.forms import TodoForm, DelTodo
-from project.models import Todo
+
+from project.models import Todo,User
 
 from datetime import datetime
 
@@ -24,8 +25,9 @@ def index():
 #  Todo List  
 @app.route('/todo')
 def todo():
+    user = User.query.all()
     todo = Todo.query.all()
-    return render_template('todo.html', todo=todo)
+    return render_template('todo.html', todo=todo, user=user)
 
 
 #  Update

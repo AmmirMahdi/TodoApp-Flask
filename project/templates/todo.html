@@ -12,6 +12,10 @@
     <!-- Todo Title   -->
     <h3> {{  t.title  }}</h3>
 
+    <!-- User  -->
+    {% for u in user %}
+        <p> {{ u.username }}</p>
+    {% endfor %}
     <!--  Todo Date -->
     <p>{{ t.date }}</p>
 
