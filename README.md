@@ -8,3 +8,8 @@ Applications that use the Flask framework include Pinterest and LinkedIn.
  
  We can create,Update,Add,Delete Todos
  each Todo has title and complete status  
+
+
+# Screenshot
+
+![alt text](https://s17.picofile.com/file/8419244392/Firefox_Screenshot_2020_12_28T16_03_50_703Z.png)
